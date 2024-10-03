@@ -13,25 +13,21 @@ import 'package:home_glam/widgets/button.dart';
 import 'package:home_glam/widgets/primary_divider.dart';
 import 'package:home_glam/widgets/primary_textfield.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<SigninScreen> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> with TextFieldValidation {
-  final TextEditingController _nameController = TextEditingController();
+class _SignupScreenState extends State<SigninScreen> with TextFieldValidation {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _phoneController.dispose();
     super.dispose();
   }
 
@@ -49,9 +45,9 @@ class _SignupScreenState extends State<SignupScreen> with TextFieldValidation {
             key: globalKey,
             child: Column(
               children: [
-                 Gap(30.h),
+                Gap(30.h),
                 Text(
-                  AppConsts.welcomeTo,
+                  AppConsts.welcomeback,
                   style: AppTextStyles.text24.copyWith(fontWeight: FontWeight.w500, fontFamily: AppFontFamily.poppins),
                 ),
                 Gap(8.h),
@@ -68,17 +64,10 @@ class _SignupScreenState extends State<SignupScreen> with TextFieldValidation {
                   padding: EdgeInsets.symmetric(horizontal: 36.w),
                   child: Text(
                     textAlign: TextAlign.center,
-                    AppConsts.signUpAs,
+                    AppConsts.logininAs,
                     style: AppTextStyles.text20.copyWith(
                         fontWeight: FontWeight.w600, color: AppColors.black0F, fontFamily: AppFontFamily.mulish),
                   ),
-                ),
-                Gap(12.h),
-                PrimaryTextField(
-                  textInputAction: TextInputAction.next,
-                  controller: _nameController,
-                  hint: AppConsts.name,
-                  validator: (val) => validateName(val),
                 ),
                 Gap(12.h),
                 PrimaryTextField(
@@ -94,18 +83,24 @@ class _SignupScreenState extends State<SignupScreen> with TextFieldValidation {
                   hint: AppConsts.password,
                   validator: (val) => validatePassword(val),
                 ),
-                Gap(12.h),
-                PrimaryTextField(
-                  textInputAction: TextInputAction.done,
-                  controller: _passwordController,
-                  hint: AppConsts.phone,
-                  validator: (val) => validatePhoneNumber(val),
+                Gap(36.h),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    AppConsts.forgotpass,
+                    style: AppTextStyles.text18.copyWith(
+                        fontWeight: FontWeight.w500, color: AppColors.pramiry80, fontFamily: AppFontFamily.poppins),
+                  ),
                 ),
                 Gap(36.h),
-                PrimaryButton(onpress: () {}, text: AppConsts.signUp),
+                PrimaryButton(
+                    onpress: () {
+                      AppNavigator.pushNamed(context, RoutesName.otpVarificationRoute);
+                    },
+                    text: AppConsts.login),
                 buildDivider(),
                 _buildSocialLogin(),
-                _buildAlreadyAcount()
+                _buildDontHaveAcount()
               ],
             ),
           ),
@@ -114,23 +109,23 @@ class _SignupScreenState extends State<SignupScreen> with TextFieldValidation {
     );
   }
 
-  Widget _buildAlreadyAcount() {
+  Widget _buildDontHaveAcount() {
     return Padding(
         padding: EdgeInsets.only(
           top: 20.h,
         ),
         child: GestureDetector(
           onTap: () {
-            AppNavigator.pushReplacementNamed(context, RoutesName.signinRoute);
+            AppNavigator.pushReplacementNamed(context, RoutesName.signupRoute);
           },
           child: RichText(
               text: TextSpan(
                   children: [
                 TextSpan(
-                    text: AppConsts.login,
+                    text: AppConsts.signUp,
                     style: AppTextStyles.text16.copyWith(color: AppColors.pramiry, fontWeight: FontWeight.w600))
               ],
-                  text: AppConsts.alreadyHave,
+                  text: AppConsts.dontHave,
                   style: AppTextStyles.text16
                       .copyWith(height: 1.7, fontWeight: FontWeight.w500, letterSpacing: 2, color: AppColors.black32))),
         ));

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:home_glam/animations/routes_animation.dart';
 import 'package:home_glam/routes/routes_name.dart';
+import 'package:home_glam/views/AUTHORIZATION/agremet_screen.dart';
+import 'package:home_glam/views/AUTHORIZATION/otp_varification_screen.dart';
+import 'package:home_glam/views/AUTHORIZATION/signin_screen.dart';
 import 'package:home_glam/views/AUTHORIZATION/signup_screen.dart';
 import 'package:home_glam/views/locationAndRole_screen.dart';
 import 'package:home_glam/views/onBoarding_screen.dart';
@@ -20,6 +23,15 @@ class AppRouteGenerator {
 
       case RoutesName.signupRoute:
         return rightToLeftRouteAnimation(const SignupScreen());
+
+      case RoutesName.signinRoute:
+        return rightToLeftRouteAnimation(const SigninScreen());
+
+      case RoutesName.otpVarificationRoute:
+        return rightToLeftRouteAnimation(const OtpVarificationScreen());
+
+      case RoutesName.agrementRoute:
+        return rightToLeftRouteAnimation(const AgrementScreen());
 
       default:
         // Handle undefined routes

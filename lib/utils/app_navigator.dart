@@ -61,4 +61,7 @@ class AppNavigator {
   static void popWithResult<T>(BuildContext context, T result) {
     Navigator.pop(context, result);
   }
+   static bool canPop(BuildContext context) {
+    return Navigator.of(context).canPop();
+  }
 }

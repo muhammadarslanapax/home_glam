@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_glam/const/theme/app_theme.dart';
 import 'package:home_glam/routes/app_routes.dart';
 import 'package:home_glam/routes/routes_name.dart';
 import 'package:home_glam/utils/app_colors.dart';
@@ -27,15 +28,11 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return SafeArea(
           child: MaterialApp(
-            initialRoute: RoutesName.splash,
-            onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-            debugShowCheckedModeBanner: false,
-            title: 'Home Glam',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-          ),
+              initialRoute: RoutesName.splash,
+              onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+              debugShowCheckedModeBanner: false,
+              title: 'Home Glam',
+              theme: AppTheme.lightTheme),
         );
       },
     );

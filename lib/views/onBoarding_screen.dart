@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:home_glam/const/consts.dart';
 import 'package:home_glam/const/lists.dart';
 import 'package:home_glam/routes/routes_name.dart';
 import 'package:home_glam/utils/app_colors.dart';
@@ -96,12 +98,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               padding: const EdgeInsets.all(12.0),
               child: Align(
                   alignment: Alignment.centerRight,
-                  child: Button(
-                      press: () {
+                  child: PrimaryButton(
+                      onpress: () {
                         goToNextScreen(context);
                       },
-                      width: 138,
-                      text: "Get Started")),
+                      width: 138.w,
+                      text: AppConsts.getStarted)),
             )
           ]
         ],
