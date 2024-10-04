@@ -8,6 +8,7 @@ import 'package:home_glam/utils/app_colors.dart';
 import 'package:home_glam/utils/app_navigator.dart';
 import 'package:home_glam/utils/app_styles.dart';
 import 'package:home_glam/utils/validations/text_field_validation.dart';
+import 'package:home_glam/views/main/main_screen.dart';
 import 'package:home_glam/widgets/app_image.dart';
 import 'package:home_glam/widgets/button.dart';
 import 'package:home_glam/widgets/primary_divider.dart';
@@ -95,7 +96,8 @@ class _SignupScreenState extends State<SigninScreen> with TextFieldValidation {
                 Gap(36.h),
                 PrimaryButton(
                     onpress: () {
-                      AppNavigator.pushNamed(context, RoutesName.otpVarificationRoute);
+                      //AppNavigator.pushNamed(context, RoutesName.otpVarificationRoute);
+                      AppNavigator.push(context, MainScreen());
                     },
                     text: AppConsts.login),
                 buildDivider(),
